@@ -1,0 +1,370 @@
+/* GOOGLE FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* VARIABLES CSS */
+:root {
+  /* COLORS PRIMARY */
+  --colorGold500: hsl(39, 89%, 49%);
+  --colorGold600: hsl(28, 76%, 44%);
+  --colorBlue500: hsl(230, 89%, 62%);
+  --colorBlue700: rgb(42, 70, 192);
+  --colorRed600: hsl(349, 71%, 52%);
+  --colorRed800: hsl(347, 75%, 35%);
+  --colorPurple600: hsl(261, 73%, 60%);
+  --colorPurple700: hsl(261, 51%, 44%);
+  --colorLightBlue400: hsl(189, 59%, 53%);
+  --LightBlue500: rgb(45, 140, 169);
+
+  /* COLORS NEUTRAL */
+
+  /* dark text */
+  --colorNavy900: rgb(59, 67, 99);
+
+  /* score text */
+  --colorBlue700: #2a46c0;
+  --colorGray600: hsl(246, 11%, 37%);
+
+  /* COLORS BACKGROUND */
+  --colorRadialGradient: #1f3756 to #141639;
+}
+
+/* CSS RESET */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+
+  background: linear-gradient(
+    0deg,
+    rgba(20, 22, 57, 1) 100%,
+    rgba(31, 55, 86, 1) 0
+  );
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+a:link {
+  text-decoration: none;
+  /* display: block; */
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.container {
+  max-width: 1366px;
+  display: grid;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 700px;
+  margin: 48px auto auto auto;
+
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+
+  padding: 18px 24px 18px 33px;
+
+  margin-bottom: 163px;
+}
+
+.header__scored {
+  display: grid;
+  justify-items: center;
+
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 100%,
+    rgba(243, 243, 243, 1) 0%
+  );
+
+  padding: 15px 47px;
+
+  border-radius: 8px;
+}
+
+.header__title {
+  font:
+    600 1rem / 1 "Barlow Semi Condensed",
+    sans-serif;
+  letter-spacing: 2.5px;
+  color: #2a45c2;
+}
+
+.header__score {
+  font:
+    700 64px / 1 "Barlow Semi Condensed",
+    sans-serif;
+  color: #565468;
+}
+
+.selection {
+  display: grid;
+  /* display: none; */
+  justify-items: center;
+  justify-content: center;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  gap: 44px;
+
+  max-width: 476px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.selection__img {
+  position: absolute;
+}
+
+.selection__option,
+.options__option {
+  display: grid;
+
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.selection__icon,
+.options__icon {
+  z-index: 999;
+}
+
+.selection__option::after,
+.options__option::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 152px;
+  height: 144px;
+  border-radius: 100%;
+  background-color: #fff;
+  box-shadow: inset 0px 8px 0px rgba(218, 218, 218, 1);
+}
+
+.options__option::after {
+  width: 224px;
+  height: 213px;
+}
+
+.selection__option::before,
+.options__option::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 192px;
+  height: 194px;
+  border-radius: 100%;
+  background-color: #4664f4;
+  box-shadow: inset 0px -8px 0px #2a45c2;
+}
+
+.hover {
+  width: 252px;
+  height: 248px;
+  /* display: block; */
+  display: none;
+  position: absolute;
+  border-radius: 100%;
+  background-color: #fff;
+  /* opacity: 0.1; */
+  z-index: -1;
+  transition: all 0.5s ease-out;
+}
+
+.selection__option:hover .hover {
+  display: block;
+  opacity: 0.1;
+  transition: all 0.5s ease-out;
+}
+
+.grid-1 {
+  top: -20px;
+}
+
+.grid-2 {
+  top: -20px;
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.grid-2::before {
+  background-color: var(--colorGold500);
+  box-shadow: inset 0px -8px 0px #c76c1b;
+}
+
+.grid-3 {
+  grid-row: 3;
+  grid-column: 2;
+  bottom: 60px;
+}
+
+.grid-3::before {
+  background-color: var(--colorRed600);
+  box-shadow: inset 0px -8px 0px #9d1634;
+}
+
+.options__option::before {
+  width: 292px;
+  height: 286px;
+}
+
+.options {
+  max-width: 623px;
+  /* max-width: 938px; */
+  /* display: grid; */
+  display: none;
+
+  /* grid-template-columns: 1fr 1fr; */
+  align-items: center;
+
+  /* justify-content: space-between; */
+  margin: 0 auto;
+}
+
+.options__text,
+.options__player {
+  /* display: grid; */
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  /* align-items: center; */
+}
+
+.options__text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 96px;
+}
+
+.options__player {
+  display: flex;
+
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+  /* gap: 144px; */
+  /* height: 400px; */
+}
+
+.options__title {
+  font:
+    700 24px / 1.33 "Barlow Semi Condensed",
+    sans-serif;
+  letter-spacing: 3px;
+  color: #fff;
+  /* text-align: center; */
+}
+
+.options__option--empty {
+  width: 224px;
+  height: 224px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0);
+  opacity: 0.1;
+  display: grid;
+}
+
+.options__option--empty > .options__option {
+  z-index: 999;
+  display: none;
+}
+
+.options__result {
+  display: grid;
+  display: none;
+  justify-items: center;
+  padding-left: 60px;
+}
+
+.options__subtitle {
+  font:
+    700 56px / 1.33 "Barlow Semi Condensed",
+    sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.btn:link {
+  font:
+    600 16px / 1 "Barlow Semi Condensed",
+    sans-serif;
+  letter-spacing: 2.5px;
+  padding: 15px 60px;
+  background: #fff;
+  color: #3b4262;
+  text-transform: uppercase;
+  border-radius: 8px;
+}

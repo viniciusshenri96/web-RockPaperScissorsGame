@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Rock, Paper, Scissors</title>
+
+</head>
+
+<body>
+  <header class="header">
+    <a class="header__img" href="/">
+      <img class="img" src="assets/images/logo-bonus.svg" alt="logo">
+    </a>
+
+    <div class="header__scored">
+      <span class="header__title">SCORE</span>
+      <span class="header__score">12</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="selection">
+      <img class="selection__img" src="assets/images/bg-triangle.svg" alt="">
+
+      <div class="selection__option grid-1">
+        <div class="hover"></div>
+        <img class="selection__icon" src="assets/images/icon-paper.svg" width="73" height='86' alt="">
+      </div>
+
+
+      <div class="selection__option grid-2">
+        <div class="hover"></div>
+        <img class="selection__icon" src="assets/images/icon-scissors.svg" width="96" height='96' alt="">
+      </div>
+
+      <div class="selection__option grid-3">
+        <div class="hover"></div>
+        <img class="selection__icon" src="assets/images/icon-rock.svg" width="76" height='76' alt="">
+      </div>
+    </section>
+
+    <section class="options">
+
+      <div class="options__text">
+        <h2 class="options__title">YOU PICKED</h2>
+        <h2 class="options__title">THE HOUSE PICKED</h2>
+      </div>
+
+      <div class="options__player">
+        <div class="options__option">
+          <img class="options__icon" src="assets/images/icon-paper.svg" width="99" height="118" alt="">
+        </div>
+
+        <div class="options__result">
+          <h2 class="options__subtitle">You win</h2>
+          <a href="/" class="btn">Play Again</a>
+        </div>
+
+        <div class="options__option--empty">
+          <!-- <img src="assets/images/icon-paper.svg" class="options__option" alt=""> -->
+          <div class="options__option">
+            <img class="options__icon" src="assets/images/icon-paper.svg" width="99" height="118" alt="">
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+  </main>
+
+</body>
+
+</html>
