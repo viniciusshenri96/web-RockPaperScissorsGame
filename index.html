@@ -44,7 +44,7 @@
       </div>
     </section>
 
-    <section class="options">
+    <section class="options hidden">
 
       <div class="options__text">
         <h2 class="options__title">YOU PICKED</h2>
@@ -56,9 +56,9 @@
           <img class="options__icon" src="assets/images/icon-paper.svg" width="99" height="118" alt="">
         </div> -->
 
-        <div class="options__result">
+        <div class="options__result hidden">
           <h2 class="options__subtitle">You win</h2>
-          <a href="/" class="btn">Play Again</a>
+          <a href="/" class="btn__again">Play Again</a>
         </div>
 
         <div class="options__option--empty">
@@ -70,11 +70,21 @@
       </div>
     </section>
 
-    <!-- <button class="btn-rules container">RULES</button>
-    <div class="rules">
-      <img src="assets/images/image-rules.svg" alt="">
-    </div> -->
   </main>
+
+  <section class="rules hidden">
+    <div class="header__rules">
+      <span class="header__title">RULES</span>
+      <img class="rules__img" src="assets/images/icon-close.svg" alt="">
+    </div>
+    <img src="assets/images/image-rules.svg" alt="">
+  </section>
+
+  <footer class="footer">
+    <button class="btn-rules">RULES</button>
+  </footer>
+  <div class="overlay hidden"></div>
+
 
   <script src="assets/js/script.js"></script>
 </body>

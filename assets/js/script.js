@@ -5,47 +5,55 @@
 const containerSelection = document.querySelector(".selection");
 const containerOption = document.querySelector(".options");
 const containerOptionPlayer = document.querySelector(".options__player");
-const containerOptionResult = document.querySelector(".options__result");
+
+const containerRules = document.querySelector(".rules");
+const containerResult = document.querySelector(".options__result ");
 const optionCPU = document.querySelector(".options__option--empty");
 const drawEl = document.querySelector(".options__subtitle");
 const scoreEl = document.querySelector(".header__score");
+const overlayEl = document.querySelector(".overlay");
+const iconClose = document.querySelector(".rules__img");
 const containerSelectionOptionAll =
   document.querySelectorAll(".selection__option");
 
-const btnRules = document.querySelector(".btn");
+const btnRules = document.querySelector(".btn-rules");
+const btnAgain = document.querySelector(".btn__again");
 
 const arrOption = ["paper", "scissors", "rock"];
-const random = Math.trunc(Math.random() * 3);
+let random = Math.trunc(Math.random() * 3);
 let score = 0;
 
 containerSelectionOptionAll.forEach(function (element) {
   element.addEventListener("click", function () {
-    containerSelection.classList.add("none");
-    containerOption.classList.add("grid");
+    containerSelection.classList.add("hidden");
+    containerOption.classList.remove("hidden");
+
     let iconSVG = element.lastElementChild.src.split("/").at(-1);
 
     const html = `
         <div class="options__option ${element.classList.value.slice(-6)}">
-          <img class="selection__icon" src="assets/images/${iconSVG}" width="99" height="118" alt="">
-        </div>
-    `;
+            <img class="selection__icon" src="assets/images/${iconSVG}" width="99" height="118" alt="">
+          </div>
+      `;
+
     containerOptionPlayer.insertAdjacentHTML("afterbegin", html);
 
     setTimeout(function () {
+      random = Math.trunc(Math.random() * 3);
       const html = `
-          <div class="options__option color-${random}">
-            <img class="options__icon" src="assets/images/icon-${arrOption[random]}.svg" width="99" height="118" alt="">
-          </div> 
-        `;
+            <div class="options__option color-${random}">
+              <img class="options__icon" src="assets/images/icon-${arrOption[random]}.svg" width="99" height="118" alt="">
+            </div> 
+          `;
       optionCPU.insertAdjacentHTML("afterbegin", html);
-      optionCPU.classList.add("grid");
+
       optionCPU.style.opacity = "1";
     }, 1000);
 
     ////////////////////////////////////
     ///// LOGIC GAME
     const resultCSS = function () {
-      containerOptionResult.classList.add("grid");
+      containerResult.classList.remove("hidden");
       containerOption.style.maxWidth = "938px";
     };
 
@@ -55,6 +63,8 @@ containerSelectionOptionAll.forEach(function (element) {
 
       const win = function () {
         resultCSS();
+        drawEl.textContent = "You win";
+
         score++;
         scoreEl.textContent = score;
       };
@@ -67,6 +77,11 @@ containerSelectionOptionAll.forEach(function (element) {
       const lose = function () {
         resultCSS();
         drawEl.textContent = "You Lose";
+
+        if (score >= 1) {
+          score--;
+          scoreEl.textContent = score;
+        }
       };
 
       const arrPlayer = ["rock", "scissors", "paper"];
@@ -84,30 +99,40 @@ containerSelectionOptionAll.forEach(function (element) {
     }, 2000);
   });
 });
-// if (player.includes("rock") && cpu.includes("scissors")) return win();
 
-// if (player.includes("scissors") && cpu.includes("paper")) return win();
+btnAgain.addEventListener("click", function (e) {
+  e.preventDefault();
+  containerSelection.classList.remove("hidden");
+  containerOption.classList.add("hidden");
+  containerOption.style.maxWidth = "623px";
+  optionCPU.style.opacity = "0.1";
+  containerResult.classList.add("hidden");
 
-// if (player.includes("paper") && cpu.includes("rock")) return win();
+  const divOption = document.querySelector(".options__option");
+  const option = document.querySelector(".options__player");
+  const optionsEmpty = document.querySelector(".options__option--empty");
 
-// selectionElAll.forEach(function (element) {
-//   element.addEventListener("click", function () {
-//     selection.classList.add("none");
-//     options.classList.add("grid");
+  option.removeChild(divOption);
 
-//     let img = element.lastElementChild;
+  optionsEmpty.removeChild(optionsEmpty.firstChild.nextSibling);
+});
 
-//     optionsOption.appendChild(img);
-//     if (img.src.includes("paper")) return optionsOption.classList.add("grid-1");
+// Modal
+const close = function () {
+  containerRules.classList.add("hidden");
+  overlayEl.classList.add("hidden");
+};
+const open = function () {
+  containerRules.classList.remove("hidden");
+  overlayEl.classList.remove("hidden");
+};
 
-//     img.src.includes("scissors")
-//       ? optionsOption.classList.add("grid-2")
-//       : optionsOption.classList.add("grid-3");
-//     optionsOption.style.bottom = "0";
+btnRules.addEventListener("click", open);
+iconClose.addEventListener("click", close);
+overlayEl.addEventListener("click", close);
 
-//     // setTimeout(function () {
-//     //   optionsCPU.appendChild(img);
-//     //   optionsIcon.src = `assets/images/icon-${arrOption[random]}.svg`;
-//     // }, 1000);
-//   });
-// });
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !containerRules.classList.contains("hidden")) {
+    close();
+  }
+});
