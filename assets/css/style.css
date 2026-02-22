@@ -112,7 +112,7 @@ a:link {
   /* display: block; */
 }
 
-/*
+/*  
   10. Create a root stacking context
 */
 #root,
@@ -124,17 +124,13 @@ a:link {
   max-width: 1366px;
   display: grid;
 }
-/* 
-main {
-  display: grid;
-} */
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  max-width: 700px;
+  max-width: 43.75rem;
   margin: 48px auto 163px auto;
 
   border: 3px solid rgba(255, 255, 255, 0.5);
@@ -160,6 +156,7 @@ main {
   border-radius: 8px;
 }
 
+/* -------------HEADER------------- */
 .header__title {
   font:
     600 1rem / 1 "Barlow Semi Condensed",
@@ -205,7 +202,6 @@ main {
   align-items: center;
   position: relative;
   cursor: pointer;
-  transition: all 0.5s ease-out;
 }
 
 .selection__option {
@@ -254,15 +250,89 @@ main {
   position: absolute;
   border-radius: 100%;
   background-color: #fff;
-  /* opacity: 0.1; */
+  opacity: 0.1;
   z-index: -1;
   transition: 3s ease-in;
+}
+
+.options__option > .hover,
+.hover1,
+.hover2 {
+  width: 350px;
+  height: 350px;
+  display: block;
+  /* display: none; */
+  position: absolute;
+  border-radius: 100%;
+  background-color: #fff;
+  opacity: 0.1;
+
+  z-index: -1;
+  transition: 3s ease-in;
+}
+
+.hover1 {
+  width: 450px;
+  height: 450px;
+  z-index: -2;
+  /* opacity: 0.2; */
+  background-color: #fff;
+  opacity: 0.1;
+}
+
+.hover2 {
+  width: 550px;
+  height: 550px;
+  z-index: -3;
+  background-color: #fff;
+  /* opacity: 0.3; */
+
+  /* opacity: 0.3; */
+  /* transition: 3s ease-in; */
+}
+
+/* .options__option > .hover::before {
+  content: "";
+  width: 550px;
+  height: 550px;
+  display: block;
+  position: absolute;
+  border-radius: 100%;
+  background-color: red;
+  top: -100px;
+  left: -100px;
+  opacity: 2;
+  z-index: 1;
+  transition: 3s ease-in;
+} */
+
+@keyframes deslizar {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animar {
+  animation-name: deslizar;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
 }
 
 .selection__option:hover .hover {
   display: block;
   opacity: 0.1;
-  /* scale: 1; */
+  scale: 1;
 }
 
 .grid-1 {
@@ -418,6 +488,10 @@ main {
   z-index: 9999;
 }
 
+.footer {
+  max-width: 100%;
+}
+
 /*========== RULES ==========*/
 
 .header__rules {
@@ -455,14 +529,6 @@ main {
 
 /* interaction elements */
 
-/* .grid {
-  display: grid;
-}
-
-.none {
-  display: none;
-} */
-
 .color-0::before {
   background-color: #4664f4;
   box-shadow: inset 0px -8px 0px #2a45c2;
@@ -480,4 +546,27 @@ main {
 
 .hidden {
   display: none;
+}
+
+@keyframes deslizar {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animar {
+  animation-name: deslizar;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
 }

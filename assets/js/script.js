@@ -2,20 +2,25 @@
 
 //////////////////////////////////
 // SELECTING ELEMENTS
+
+// CONTAINERS
 const containerSelection = document.querySelector(".selection");
 const containerOption = document.querySelector(".options");
 const containerOptionPlayer = document.querySelector(".options__player");
-
 const containerRules = document.querySelector(".rules");
 const containerResult = document.querySelector(".options__result ");
+
+// ELEMENTS
 const optionCPU = document.querySelector(".options__option--empty");
 const drawEl = document.querySelector(".options__subtitle");
 const scoreEl = document.querySelector(".header__score");
 const overlayEl = document.querySelector(".overlay");
 const iconClose = document.querySelector(".rules__img");
+
 const containerSelectionOptionAll =
   document.querySelectorAll(".selection__option");
 
+// BUTTONS
 const btnRules = document.querySelector(".btn-rules");
 const btnAgain = document.querySelector(".btn__again");
 
@@ -42,6 +47,7 @@ containerSelectionOptionAll.forEach(function (element) {
       random = Math.trunc(Math.random() * 3);
       const html = `
             <div class="options__option color-${random}">
+               
               <img class="options__icon" src="assets/images/icon-${arrOption[random]}.svg" width="99" height="118" alt="">
             </div> 
           `;
@@ -67,6 +73,15 @@ containerSelectionOptionAll.forEach(function (element) {
 
         score++;
         scoreEl.textContent = score;
+
+        const option = document.querySelector(".options__option");
+
+        const html = `
+              <div class="hover animar"></div>
+              <div class="hover1 animar"></div>
+              <div class="hover2 animar"></div>
+          `;
+        option.insertAdjacentHTML("afterbegin", html);
       };
 
       const draw = function () {
@@ -82,6 +97,17 @@ containerSelectionOptionAll.forEach(function (element) {
           score--;
           scoreEl.textContent = score;
         }
+
+        const optionsEmpty = document.querySelector(".options__option--empty");
+        const html = `
+              <div class="hover animar"></div>
+              <div class="hover1 animar"></div>
+              <div class="hover2 animar"></div>
+          `;
+        optionsEmpty.firstChild.nextSibling.insertAdjacentHTML(
+          "afterbegin",
+          html,
+        );
       };
 
       const arrPlayer = ["rock", "scissors", "paper"];
