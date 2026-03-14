@@ -34,15 +34,12 @@ containerSelectionOptionAll.forEach(function (element) {
     containerOption.classList.remove("hidden");
 
     let iconSVG = element.lastElementChild.src.split("/").at(-1);
-
     const html = `
         <div class="options__option ${element.classList.value.slice(-6)}">
             <img class="selection__icon" src="assets/images/${iconSVG}" width="99" height="118" alt="">
           </div>
       `;
-
     containerOptionPlayer.insertAdjacentHTML("afterbegin", html);
-
     setTimeout(function () {
       random = Math.trunc(Math.random() * 3);
       const html = `

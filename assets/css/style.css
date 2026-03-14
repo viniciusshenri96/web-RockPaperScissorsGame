@@ -48,23 +48,6 @@
   }
 }
 
-body {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-
-  /* 4. Add accessible line-height */
-  line-height: 1.5;
-  /* 5. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-
-  background: linear-gradient(
-    0deg,
-    rgba(20, 22, 57, 1) 100%,
-    rgba(31, 55, 86, 1) 0
-  );
-}
-
 /* 6. Improve media defaults */
 img,
 picture,
@@ -120,10 +103,32 @@ a:link {
   isolation: isolate;
 }
 
-.container {
-  max-width: 1366px;
-  display: grid;
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+
+  max-width: 100%;
+  /* display: grid; */
+  align-content: center;
+  height: 100vh;
+  /* 
+  margin: 0 auto; */
+  overflow: hidden;
+  position: relative;
+
+  background: linear-gradient(
+    0deg,
+    rgba(20, 22, 57, 1) 100%,
+    rgba(31, 55, 86, 1) 0
+  );
 }
+/* .container {
+  max-width: 1366px;
+} */
+
+/* -------------HEADER------------- */
 
 .header {
   display: flex;
@@ -137,8 +142,6 @@ a:link {
   border-radius: 15px;
 
   padding: 18px 24px 18px 33px;
-
-  /* margin-bottom: 163px; */
 }
 
 .header__scored {
@@ -152,11 +155,8 @@ a:link {
   );
 
   padding: 15px 47px;
-
   border-radius: 8px;
 }
-
-/* -------------HEADER------------- */
 .header__title {
   font:
     600 1rem / 1 "Barlow Semi Condensed",
@@ -174,7 +174,6 @@ a:link {
 
 .selection {
   display: grid;
-  /* display: none; */
   justify-items: center;
   justify-content: center;
 
@@ -245,7 +244,6 @@ a:link {
 .hover {
   width: 252px;
   height: 248px;
-  /* display: block; */
   display: none;
   position: absolute;
   border-radius: 100%;
@@ -261,7 +259,6 @@ a:link {
   width: 350px;
   height: 350px;
   display: block;
-  /* display: none; */
   position: absolute;
   border-radius: 100%;
   background-color: #fff;
@@ -275,7 +272,6 @@ a:link {
   width: 450px;
   height: 450px;
   z-index: -2;
-  /* opacity: 0.2; */
   background-color: #fff;
   opacity: 0.1;
 }
@@ -285,26 +281,7 @@ a:link {
   height: 550px;
   z-index: -3;
   background-color: #fff;
-  /* opacity: 0.3; */
-
-  /* opacity: 0.3; */
-  /* transition: 3s ease-in; */
 }
-
-/* .options__option > .hover::before {
-  content: "";
-  width: 550px;
-  height: 550px;
-  display: block;
-  position: absolute;
-  border-radius: 100%;
-  background-color: red;
-  top: -100px;
-  left: -100px;
-  opacity: 2;
-  z-index: 1;
-  transition: 3s ease-in;
-} */
 
 @keyframes deslizar {
   0% {
@@ -362,14 +339,9 @@ a:link {
 
 .options {
   max-width: 623px;
-  /* max-width: 938px; */
   display: grid;
-  /* display: none; */
-
-  /* grid-template-columns: 1fr 1fr; */
   align-items: center;
 
-  /* justify-content: space-between; */
   margin: 0 auto;
 
   height: 430px;
@@ -377,10 +349,8 @@ a:link {
 
 .options__text,
 .options__player {
-  /* display: grid; */
   display: none;
   grid-template-columns: 1fr 1fr;
-  /* align-items: center; */
 }
 
 .options__text {
@@ -391,12 +361,9 @@ a:link {
 
 .options__player {
   display: flex;
-
   align-items: center;
   justify-items: center;
   justify-content: space-between;
-  /* gap: 144px; */
-  /* height: 400px; */
 }
 
 .options__title {
@@ -405,8 +372,6 @@ a:link {
     sans-serif;
   letter-spacing: 3px;
   color: #fff;
-  /* margin-bottom: 60px; */
-  /* text-align: center; */
 }
 
 .options__option--empty {
@@ -420,7 +385,6 @@ a:link {
 
 .options__option--empty > .options__option {
   z-index: 999;
-  /* display: none; */
 }
 
 .options__result {
@@ -437,7 +401,7 @@ a:link {
   text-transform: uppercase;
 }
 
-.btn__again:link {
+.btn__again {
   font:
     600 16px / 1 "Barlow Semi Condensed",
     sans-serif;
@@ -448,10 +412,9 @@ a:link {
   text-transform: uppercase;
   border-radius: 8px;
 }
-
-/* .footer {
-  margin-top: 200px;
-} */
+.btn__again:active {
+  color: #3b4262;
+}
 
 .btn-rules {
   background: none;
@@ -463,7 +426,6 @@ a:link {
     sans-serif;
   color: #fff;
   letter-spacing: 2.5px;
-  /* margin-top: 35px; */
   margin-right: 32px;
   display: grid;
   justify-self: end;
@@ -492,8 +454,6 @@ a:link {
   max-width: 100%;
 }
 
-/*========== RULES ==========*/
-
 .header__rules {
   display: flex;
   justify-content: space-between;
@@ -520,14 +480,7 @@ a:link {
   bottom: 0px;
 
   position: absolute;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-
-  /* z-index: 9999; */
 }
-
-/* interaction elements */
 
 .color-0::before {
   background-color: #4664f4;
@@ -569,4 +522,32 @@ a:link {
   animation-iteration-count: infinite;
   animation-fill-mode: none;
   animation-play-state: running;
+}
+
+/* RESPONSIVE */
+@media (max-width: 50em) {
+  .header {
+    margin: 32px 32px 144px 32px;
+  }
+}
+@media (max-width: 37.5em) {
+  .header__title {
+    font-size: 10px;
+    letter-spacing: 1.56px;
+    color: #2a45c2;
+  }
+
+  .header__score {
+    font-size: 40px;
+  }
+
+  .header__scored {
+    padding: 10px 22px;
+    border-radius: 5px;
+  }
+
+  img {
+    width: 83px;
+    height: 48px;
+  }
 }
