@@ -1,19 +1,16 @@
 <h1 align="center">
-<img width='900px'src="banner-bankist.png" align="center"/>
+<img width='900px'src="banner-game.png" align="center"/>
 </h1>
 
 <h2 align="center"> 
-	BANKIST - Completed ✅
+	Rock, Paper, Scissors game ✅
 </h2>
 
 <h2 id="#description">Project description 📚</h2>
-This project was developed to put array and dates methods into practice in JavaScrip. The objective of the project is to simulate a bank with transfers, account closing and loans, see below for a quick preview:
+This project is a rock, paper, scissors game developed with basic JavaScript, HTML and CSS, where my biggest challenge was creating the game's interface and logic
 
 <h3 id="#description">Preview project:</h3>
-<img width='900px'src="bankist-gif.gif" align="center"/>
-
-<h3 id="#description">Flowchart project.📝</h3>
-<img width='700px'src="Bankist-flowchart.png" align=""/>
+<img width='900px'src="rock-paper-scissors.gif" align="center"/>
 
 ## Technology
 
@@ -25,23 +22,9 @@ This project was developed with the following technologies:
 
 <hr>
 
-Main array methods used in the project:
+## Links
 
-- [forEach()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-
-- [map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-
-- [reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
-
-- [find()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-
-- [filter()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-
-- [sort()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
-
-- [join()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
-
-- [push()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+- [Preview project](https://vinicius-rockpaperscissors.netlify.app/)
 
 <br />
 

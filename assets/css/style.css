@@ -176,35 +176,30 @@ body {
   display: grid;
   justify-items: center;
   justify-content: center;
-
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
 
-  gap: 44px;
+  max-width: 29.75rem;
+  height: 26.875rem;
 
-  max-width: 476px;
   margin: 0 auto;
-  position: relative;
-
-  height: 430px;
+  /* position: relative; */
 }
 
 .selection__img {
   position: absolute;
 }
 
+.selection__option {
+  margin-top: -6.25rem;
+}
+
 .selection__option,
 .options__option {
   display: grid;
-
   justify-items: center;
   align-items: center;
   position: relative;
   cursor: pointer;
-}
-
-.selection__option {
-  top: -20px;
 }
 
 .selection__icon,
@@ -217,16 +212,11 @@ body {
   position: absolute;
   content: "";
   display: block;
-  width: 152px;
-  height: 144px;
+  width: 9.5rem;
+  height: 9rem;
   border-radius: 100%;
   background-color: #fff;
   box-shadow: inset 0px 8px 0px rgba(218, 218, 218, 1);
-}
-
-.options__option::after {
-  width: 224px;
-  height: 213px;
 }
 
 .selection__option::before,
@@ -234,82 +224,85 @@ body {
   position: absolute;
   content: "";
   display: block;
-  width: 192px;
-  height: 194px;
+  width: 12rem;
+  height: 12.125rem;
   border-radius: 100%;
   background-color: #4664f4;
   box-shadow: inset 0px -8px 0px #2a45c2;
 }
 
 .hover {
-  width: 252px;
-  height: 248px;
+  width: 15.75rem;
+  height: 15.5rem;
   display: none;
   position: absolute;
   border-radius: 100%;
   background-color: #fff;
-  opacity: 0.1;
-  z-index: -1;
-  transition: 3s ease-in;
 }
 
-.options__option > .hover,
+.selection__option:hover .hover {
+  display: block;
+  opacity: 0.1;
+}
+
+/* Animation selection container */
+.rotate-center {
+  -webkit-animation: rotate-center 0.6s ease-in-out both;
+  animation: rotate-center 0.6s ease-in-out both;
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.options__option::after {
+  width: 14rem;
+  height: 13.313rem;
+}
+
+.options__option .hover,
 .hover1,
 .hover2 {
-  width: 350px;
-  height: 350px;
+  width: 21.875rem;
+  height: 21.875rem;
   display: block;
   position: absolute;
   border-radius: 100%;
   background-color: #fff;
   opacity: 0.1;
-
   z-index: -1;
-  transition: 3s ease-in;
 }
 
 .hover1 {
-  width: 450px;
-  height: 450px;
+  width: 28.125rem;
+  height: 28.125rem;
   z-index: -2;
   background-color: #fff;
   opacity: 0.1;
 }
 
 .hover2 {
-  width: 550px;
-  height: 550px;
+  width: 34.375rem;
+  height: 34.375rem;
   z-index: -3;
   background-color: #fff;
-}
-
-@keyframes deslizar {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(0.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.animar {
-  animation-name: deslizar;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-fill-mode: none;
-  animation-play-state: running;
-}
-
-.selection__option:hover .hover {
-  display: block;
-  opacity: 0.1;
-  scale: 1;
 }
 
 .grid-1 {
@@ -333,18 +326,18 @@ body {
 }
 
 .options__option::before {
-  width: 292px;
-  height: 286px;
+  width: 18.25rem;
+  height: 17.875rem;
 }
 
 .options {
-  max-width: 623px;
+  max-width: 38.938rem;
   display: grid;
   align-items: center;
 
   margin: 0 auto;
 
-  height: 430px;
+  height: 26.875rem;
 }
 
 .options__text,
@@ -375,8 +368,8 @@ body {
 }
 
 .options__option--empty {
-  width: 224px;
-  height: 224px;
+  width: 14rem;
+  height: 14rem;
   border-radius: 50%;
   background-color: rgba(0, 0, 0);
   opacity: 0.1;
@@ -474,9 +467,8 @@ body {
 
 .overlay {
   width: 100%;
-  height: inherit;
+  height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  top: -48px;
   bottom: 0px;
 
   position: absolute;
@@ -495,10 +487,6 @@ body {
 .color-2::before {
   background-color: var(--colorRed600);
   box-shadow: inset 0px -8px 0px #9d1634;
-}
-
-.hidden {
-  display: none;
 }
 
 @keyframes deslizar {
@@ -530,7 +518,7 @@ body {
     margin: 32px 32px 144px 32px;
   }
 }
-@media (max-width: 37.5em) {
+@media (max-width: 50em) {
   .header__title {
     font-size: 10px;
     letter-spacing: 1.56px;
@@ -546,8 +534,118 @@ body {
     border-radius: 5px;
   }
 
-  img {
+  .header__img {
     width: 83px;
     height: 48px;
   }
+
+  .selection {
+    max-width: 19.5rem;
+    height: 17.625rem;
+  }
+
+  .selection__img {
+    width: 166px;
+    height: 188px;
+  }
+
+  .selection__icon,
+  .options__icon {
+    width: 48px;
+    height: 56px;
+  }
+
+  .selection__option::after,
+  .options__option::after {
+    width: 99px;
+    height: 94px;
+  }
+
+  .selection__option::before,
+  .options__option::before {
+    width: 129px;
+    height: 126px;
+  }
+
+  .options {
+    max-width: 324px;
+    height: 182px;
+    /* display: grid; */
+    /* margin: 0 32px 0 32px; */
+    /* row-gap: 40px; */
+  }
+
+  .options__option {
+    max-width: 325px;
+    /* margin: auto; */
+    /* height: 182px; */
+  }
+
+  .options__player {
+    margin: 0 32px;
+    /* justify-content: center;
+    gap: 20px; */
+  }
+
+  .options__text {
+    grid-row: 2;
+    margin-bottom: 0;
+    justify-content: center;
+    gap: 70px;
+    /* grid-template-columns: auto auto; */
+  }
+
+  .options__result {
+    padding-left: 0;
+  }
+
+  .options__title {
+    font-size: 15px;
+  }
+
+  .options__option--empty {
+    width: inherit;
+    height: 110px;
+  }
+
+  .options__subtitle {
+    font-size: 15px;
+  }
+  .btn__again {
+    font-size: 12px;
+    padding: 7px 7px;
+  }
+
+  .footer {
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+  }
+
+  @keyframes deslizar {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(0.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .animar {
+    animation-name: deslizar;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
+  }
+}
+
+.hidden {
+  display: none;
 }

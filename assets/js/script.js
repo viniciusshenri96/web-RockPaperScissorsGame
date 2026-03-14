@@ -43,8 +43,7 @@ containerSelectionOptionAll.forEach(function (element) {
     setTimeout(function () {
       random = Math.trunc(Math.random() * 3);
       const html = `
-            <div class="options__option color-${random}">
-               
+            <div class="options__option color-${random}">   
               <img class="options__icon" src="assets/images/icon-${arrOption[random]}.svg" width="99" height="118" alt="">
             </div> 
           `;
